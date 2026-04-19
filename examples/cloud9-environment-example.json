@@ -1,0 +1,9 @@
+{
+  "id": "abc12345",
+  "name": "example-resource",
+  "description": "example-value",
+  "type": "ssh",
+  "connectionType": "CONNECT_SSH",
+  "status": "error",
+  "ownerArn": "arn:aws:::example/abc12345"
+}

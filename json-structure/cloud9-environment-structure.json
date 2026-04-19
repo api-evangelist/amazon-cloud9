@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/json-structure/cloud9-environment-structure.json",
+  "name": "Environment",
+  "description": "Information about an AWS Cloud9 development environment.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The ID of the environment.",
+      "example": "abc12345678901234567890"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the environment.",
+      "example": "my-dev-environment"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description for the environment."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ssh",
+        "ec2"
+      ],
+      "description": "The type of environment."
+    },
+    "connectionType": {
+      "type": "string",
+      "enum": [
+        "CONNECT_SSH",
+        "CONNECT_SSM"
+      ],
+      "description": "The connection type for connecting to the environment."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "error",
+        "creating",
+        "connecting",
+        "ready",
+        "stopping",
+        "stopped",
+        "deleting"
+      ],
+      "description": "The current status of the environment."
+    },
+    "ownerArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of the environment owner."
+    }
+  }
+}

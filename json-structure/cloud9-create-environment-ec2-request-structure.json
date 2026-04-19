@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/json-structure/cloud9-create-environment-ec2-request-structure.json",
+  "name": "CreateEnvironmentEC2Request",
+  "description": "Request body for creating an EC2-based Cloud9 environment.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the environment.",
+      "example": "my-dev-environment"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the environment."
+    },
+    "instanceType": {
+      "type": "string",
+      "description": "The type of instance to connect to the environment.",
+      "example": "t3.small"
+    },
+    "connectionType": {
+      "type": "string",
+      "enum": [
+        "CONNECT_SSH",
+        "CONNECT_SSM"
+      ],
+      "description": "The connection type to use for connecting to the environment."
+    },
+    "automaticStopTimeMinutes": {
+      "type": "int32",
+      "description": "The number of minutes until the running instance is shut down after the environment has last been used."
+    }
+  }
+}

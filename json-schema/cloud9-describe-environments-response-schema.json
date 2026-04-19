@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/json-schema/cloud9-describe-environments-response-schema.json",
+  "title": "DescribeEnvironmentsResponse",
+  "description": "Response for describing environments.",
+  "type": "object",
+  "properties": {
+    "environments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Environment"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/json-structure/cloud9-create-environment-ec2-response-structure.json",
+  "name": "CreateEnvironmentEC2Response",
+  "description": "Response for creating an EC2 environment.",
+  "type": "object",
+  "properties": {
+    "environmentId": {
+      "type": "string",
+      "description": "The ID of the environment that was created.",
+      "example": "abc12345678901234567890"
+    }
+  }
+}

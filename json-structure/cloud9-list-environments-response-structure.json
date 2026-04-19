@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/json-structure/cloud9-list-environments-response-structure.json",
+  "name": "ListEnvironmentsResponse",
+  "description": "Response for listing environments.",
+  "type": "object",
+  "properties": {
+    "nextToken": {
+      "type": "string",
+      "description": "If there are more than 25 items in the list, only the first 25 are returned."
+    },
+    "environmentIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The list of environment identifiers."
+    }
+  }
+}

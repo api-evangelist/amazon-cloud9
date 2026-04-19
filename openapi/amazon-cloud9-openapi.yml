@@ -1,0 +1,364 @@
+openapi: 3.1.0
+info:
+  title: Amazon Cloud9 API
+  description: >-
+    AWS Cloud9 is a browser-based integrated development environment (IDE) that enables
+    developers to write, run, and debug code without installing local software. Supports
+    40+ programming languages with real-time collaboration, integrated terminal, and
+    pre-authenticated AWS CLI.
+  version: '2017-09-23'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+  x-generated-from: documentation
+externalDocs:
+  description: Amazon Cloud9 API Reference
+  url: https://docs.aws.amazon.com/cloud9/latest/APIReference/
+servers:
+  - url: https://cloud9.{region}.amazonaws.com
+    description: Amazon Cloud9 Regional Endpoint
+    variables:
+      region:
+        default: us-east-1
+        description: AWS Region
+tags:
+  - name: Environments
+    description: Operations for managing Cloud9 development environments
+  - name: Memberships
+    description: Operations for managing environment memberships
+paths:
+  /environments:
+    get:
+      operationId: ListEnvironments
+      summary: Amazon Cloud9 List Environments
+      description: Gets a list of Cloud9 development environment identifiers.
+      tags:
+        - Environments
+      parameters:
+        - name: nextToken
+          in: query
+          description: During a previous call, if there are more than 25 items in the list, only the first 25 items are returned.
+          schema:
+            type: string
+        - name: maxResults
+          in: query
+          description: The maximum number of environments to get identifiers for.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 25
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEnvironmentsResponse'
+              examples:
+                ListEnvironments200Example:
+                  summary: Default ListEnvironments 200 response
+                  x-microcks-default: true
+                  value:
+                    environmentIds:
+                      - "abc12345678901234567890"
+                    nextToken: null
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: CreateEnvironmentEC2
+      summary: Amazon Cloud9 Create an Environment EC2
+      description: Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.
+      tags:
+        - Environments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEnvironmentEC2Request'
+            examples:
+              CreateEnvironmentEC2RequestExample:
+                summary: Default CreateEnvironmentEC2 request
+                x-microcks-default: true
+                value:
+                  name: "my-dev-environment"
+                  description: "Development environment for project X"
+                  instanceType: "t3.small"
+                  connectionType: "CONNECT_SSM"
+                  automaticStopTimeMinutes: 30
+      responses:
+        '200':
+          description: Environment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateEnvironmentEC2Response'
+              examples:
+                CreateEnvironmentEC2200Example:
+                  summary: Default CreateEnvironmentEC2 200 response
+                  x-microcks-default: true
+                  value:
+                    environmentId: "abc12345678901234567890"
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+  /environments/{environmentId}:
+    get:
+      operationId: DescribeEnvironments
+      summary: Amazon Cloud9 Describe Environments
+      description: Gets information about AWS Cloud9 development environments.
+      tags:
+        - Environments
+      parameters:
+        - name: environmentId
+          in: path
+          required: true
+          description: The ID of the environment to get information about.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeEnvironmentsResponse'
+              examples:
+                DescribeEnvironments200Example:
+                  summary: Default DescribeEnvironments 200 response
+                  x-microcks-default: true
+                  value:
+                    environments:
+                      - id: "abc12345678901234567890"
+                        name: "my-dev-environment"
+                        description: "Development environment for project X"
+                        type: "ec2"
+                        status: "ready"
+                        ownerArn: "arn:aws:iam::123456789012:user/myuser"
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: DeleteEnvironment
+      summary: Amazon Cloud9 Delete an Environment
+      description: Deletes an AWS Cloud9 development environment.
+      tags:
+        - Environments
+      parameters:
+        - name: environmentId
+          in: path
+          required: true
+          description: The ID of the environment to delete.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Environment deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+
+components:
+  schemas:
+    Environment:
+      type: object
+      description: "Information about an AWS Cloud9 development environment."
+      properties:
+        id:
+          type: string
+          description: "The ID of the environment."
+          example: "abc12345678901234567890"
+        name:
+          type: string
+          description: "The name of the environment."
+          example: "my-dev-environment"
+        description:
+          type: string
+          description: "The description for the environment."
+        type:
+          type: string
+          enum:
+            - ssh
+            - ec2
+          description: "The type of environment."
+        connectionType:
+          type: string
+          enum:
+            - CONNECT_SSH
+            - CONNECT_SSM
+          description: "The connection type for connecting to the environment."
+        status:
+          type: string
+          enum:
+            - error
+            - creating
+            - connecting
+            - ready
+            - stopping
+            - stopped
+            - deleting
+          description: "The current status of the environment."
+        ownerArn:
+          type: string
+          description: "The Amazon Resource Name (ARN) of the environment owner."
+
+    ListEnvironmentsResponse:
+      type: object
+      description: "Response for listing environments."
+      properties:
+        nextToken:
+          type: string
+          description: "If there are more than 25 items in the list, only the first 25 are returned."
+        environmentIds:
+          type: array
+          items:
+            type: string
+          description: "The list of environment identifiers."
+
+    CreateEnvironmentEC2Request:
+      type: object
+      description: "Request body for creating an EC2-based Cloud9 environment."
+      required:
+        - name
+        - instanceType
+      properties:
+        name:
+          type: string
+          description: "The name of the environment."
+          example: "my-dev-environment"
+        description:
+          type: string
+          description: "The description of the environment."
+        instanceType:
+          type: string
+          description: "The type of instance to connect to the environment."
+          example: "t3.small"
+        connectionType:
+          type: string
+          enum:
+            - CONNECT_SSH
+            - CONNECT_SSM
+          description: "The connection type to use for connecting to the environment."
+        automaticStopTimeMinutes:
+          type: integer
+          description: "The number of minutes until the running instance is shut down after the environment has last been used."
+
+    CreateEnvironmentEC2Response:
+      type: object
+      description: "Response for creating an EC2 environment."
+      properties:
+        environmentId:
+          type: string
+          description: "The ID of the environment that was created."
+          example: "abc12345678901234567890"
+
+    DescribeEnvironmentsResponse:
+      type: object
+      description: "Response for describing environments."
+      properties:
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Environment'
+
+    BadRequestException:
+      type: object
+      description: "The target request is invalid."
+      properties:
+        message:
+          type: string
+        className:
+          type: string
+        code:
+          type: integer
+
+    NotFoundException:
+      type: object
+      description: "The target resource cannot be found."
+      properties:
+        message:
+          type: string
+
+    InternalServerErrorException:
+      type: object
+      description: "An internal server error occurred."
+      properties:
+        message:
+          type: string
+        className:
+          type: string
+        code:
+          type: integer
+
+  securitySchemes:
+    aws_signature:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4
+
+security:
+  - aws_signature: []

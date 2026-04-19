@@ -1,0 +1,60 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cloud": "https://aws.amazon.com/cloud9/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Environment": "cloud:Environment",
+    "id": {
+      "@id": "cloud:id",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "type": {
+      "@id": "cloud:type",
+      "@type": "xsd:string"
+    },
+    "connectionType": {
+      "@id": "cloud:connection_type",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "cloud:status",
+      "@type": "xsd:string"
+    },
+    "ownerArn": {
+      "@id": "cloud:owner_arn",
+      "@type": "xsd:string"
+    },
+    "ListEnvironmentsResponse": "cloud:ListEnvironmentsResponse",
+    "nextToken": {
+      "@id": "cloud:next_token",
+      "@type": "xsd:string"
+    },
+    "environmentIds": {
+      "@id": "cloud:environment_ids",
+      "@container": "@set"
+    },
+    "CreateEnvironmentEC2Request": "cloud:CreateEnvironmentEC2Request",
+    "instanceType": {
+      "@id": "cloud:instance_type",
+      "@type": "xsd:string"
+    },
+    "automaticStopTimeMinutes": {
+      "@id": "cloud:automatic_stop_time_minutes",
+      "@type": "xsd:integer"
+    },
+    "CreateEnvironmentEC2Response": "cloud:CreateEnvironmentEC2Response",
+    "environmentId": {
+      "@id": "cloud:environment_id",
+      "@type": "xsd:string"
+    },
+    "DescribeEnvironmentsResponse": "cloud:DescribeEnvironmentsResponse",
+    "environments": {
+      "@id": "cloud:environments",
+      "@container": "@set"
+    }
+  }
+}
