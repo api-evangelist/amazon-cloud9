@@ -1,0 +1,38 @@
+generated: '2026-06-20'
+method: derived
+format: aws-json
+source: openapi/amazon-cloud9-openapi.yml
+note: >-
+  Derived from the OpenAPI 4xx/5xx responses. AWS Cloud9 does not return
+  RFC 9457 application/problem+json; errors are AWS-style JSON objects with
+  message/className/code fields. Common error types documented at
+  https://docs.aws.amazon.com/cloud9/latest/APIReference/CommonErrors.md
+problems:
+  - status: 400
+    name: BadRequestException
+    title: The target request is invalid.
+    schema: '#/components/schemas/BadRequestException'
+    source_operations:
+      - openapi/amazon-cloud9-openapi.yml#ListEnvironments
+      - openapi/amazon-cloud9-openapi.yml#CreateEnvironmentEC2
+      - openapi/amazon-cloud9-openapi.yml#DescribeEnvironments
+      - openapi/amazon-cloud9-openapi.yml#DeleteEnvironment
+    remediation: Validate request parameters and body against the API reference before retrying.
+  - status: 404
+    name: NotFoundException
+    title: The target resource cannot be found.
+    schema: '#/components/schemas/NotFoundException'
+    source_operations:
+      - openapi/amazon-cloud9-openapi.yml#DescribeEnvironments
+      - openapi/amazon-cloud9-openapi.yml#DeleteEnvironment
+    remediation: Verify the environmentId exists and is in the caller's AWS account and region.
+  - status: 500
+    name: InternalServerErrorException
+    title: An internal server error occurred.
+    schema: '#/components/schemas/InternalServerErrorException'
+    source_operations:
+      - openapi/amazon-cloud9-openapi.yml#ListEnvironments
+      - openapi/amazon-cloud9-openapi.yml#CreateEnvironmentEC2
+      - openapi/amazon-cloud9-openapi.yml#DescribeEnvironments
+      - openapi/amazon-cloud9-openapi.yml#DeleteEnvironment
+    remediation: Retry with exponential backoff; if persistent, contact AWS Support.

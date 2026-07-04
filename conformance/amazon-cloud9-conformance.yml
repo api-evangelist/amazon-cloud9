@@ -1,0 +1,33 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/amazon-cloud9-openapi.yml
+standards:
+  - id: aws-sigv4
+    conforms: true
+    evidence: securitySchemes 'aws_signature' declares AWS Signature Version 4 in Authorization header.
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 security scheme; authentication is AWS SigV4.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use AWS-style JSON (message/className/code), not application/problem+json.
+  - id: pagination
+    conforms: true
+    evidence: ListEnvironments uses opaque nextToken cursor with maxResults page size (max 25).
+  - id: idempotency
+    conforms: false
+    evidence: No Idempotency-Key header or client token defined on write operations.
+  - id: json-api
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: scim
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: psd2
+    conforms: false

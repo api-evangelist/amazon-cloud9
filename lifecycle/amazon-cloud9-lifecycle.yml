@@ -1,0 +1,23 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://docs.aws.amazon.com/cloud9/latest/user-guide/history.html and AWS
+  announcement that Cloud9 was closed to new customers effective 2024-07-25.
+versioning:
+  scheme: date-version
+  current: '2017-09-23'
+  docs: https://docs.aws.amazon.com/cloud9/latest/APIReference/
+  note: AWS service APIs are versioned by an internal API date; the endpoint path is unversioned.
+deprecation:
+  status: closed-to-new-customers
+  effective: '2024-07-25'
+  announcement: >-
+    AWS closed new customer access to AWS Cloud9 effective July 25, 2024.
+    Existing customers can continue to use the service.
+  sunset_header: false
+  deprecation_header: false
+sla:
+  url: https://aws.amazon.com/legal/service-level-agreements/
+  note: Covered under general AWS service terms; no Cloud9-specific published uptime target.
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []

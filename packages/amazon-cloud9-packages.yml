@@ -1,0 +1,56 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS Cloud9 is included as a service client in the official AWS SDKs and CLI.
+  Verified against public registries (200 OK) on 2026-06-20.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-cloud9"
+    url: https://www.npmjs.com/package/@aws-sdk/client-cloud9
+    install: npm install @aws-sdk/client-cloud9
+    official: true
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    official: true
+    note: Cloud9 exposed as the boto3 'cloud9' client.
+  - language: java
+    registry: maven-central
+    name: software.amazon.awssdk:cloud9
+    url: https://central.sonatype.com/artifact/software.amazon.awssdk/cloud9
+    install: "implementation 'software.amazon.awssdk:cloud9'"
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.Cloud9
+    url: https://www.nuget.org/packages/AWSSDK.Cloud9/
+    install: dotnet add package AWSSDK.Cloud9
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/cloud9
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloud9
+    install: go get github.com/aws/aws-sdk-go-v2/service/cloud9
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: aws-sdk-cloud9
+    url: https://rubygems.org/gems/aws-sdk-cloud9
+    install: gem install aws-sdk-cloud9
+    official: true
+  - language: php
+    registry: packagist
+    name: aws/aws-sdk-php
+    url: https://packagist.org/packages/aws/aws-sdk-php
+    install: composer require aws/aws-sdk-php
+    official: true
+    note: Cloud9 exposed via the Aws\Cloud9\Cloud9Client class.
+  - language: cli
+    registry: aws-cli
+    name: aws cloud9
+    url: https://docs.aws.amazon.com/cli/latest/reference/cloud9/
+    install: pip install awscli
+    official: true

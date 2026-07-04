@@ -14,7 +14,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
 - name: Amazon Cloud9 API
@@ -40,6 +40,8 @@ apis:
     url: https://docs.aws.amazon.com/cloud9/latest/APIReference/
   - type: CLI
     url: https://docs.aws.amazon.com/cli/latest/reference/cloud9/
+  - type: Overlay
+    url: overlays/amazon-cloud9-openapi-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -80,6 +82,22 @@ common:
   url: vocabulary/amazon-cloud9-vocabulary.yaml
 - type: NaftikoCapability
   url: capabilities/development-environment.yaml
+- type: Packages
+  url: packages/amazon-cloud9-packages.yml
+- type: WellKnown
+  url: well-known/amazon-cloud9-well-known.yml
+- type: SecurityTxt
+  url: well-known/amazon-cloud9-security.txt
+- type: MCPServer
+  url: mcp/amazon-cloud9-mcp.yml
+- type: LLMsTxt
+  url: llms/amazon-cloud9-llms.txt
+- type: Conformance
+  url: conformance/amazon-cloud9-conformance.yml
+- type: ErrorCatalog
+  url: errors/amazon-cloud9-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/amazon-cloud9-lifecycle.yml
 - type: Features
   data:
   - name: Browser-Based IDE

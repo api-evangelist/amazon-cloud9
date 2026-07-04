@@ -1,0 +1,25 @@
+generated: '2026-06-20'
+method: searched
+source: https://aws.amazon.com/.well-known/security.txt
+hosts:
+  - host: https://cloud9.us-east-1.amazonaws.com
+    note: Amazon Cloud9 regional API endpoint (AWS SigV4 service host)
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://aws.amazon.com
+    note: AWS corporate host serving the organization-wide security.txt
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: amazon-cloud9-security.txt
+      - path: /.well-known/openid-configuration
+        status: 404

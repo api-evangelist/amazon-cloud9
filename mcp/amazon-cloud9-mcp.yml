@@ -1,0 +1,25 @@
+generated: '2026-06-20'
+method: derived
+status: candidate
+source: openapi/amazon-cloud9-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for AWS Cloud9 (the AWS Labs
+  MCP collection at github.com/awslabs/mcp does not publish a Cloud9 server, and
+  Cloud9 is closed to new customers). The tools below are a candidate mapping
+  derived one-per-operation from the captured OpenAPI, not a published server.
+server:
+  name: amazon-cloud9
+  transport: stdio
+tools:
+  - name: list_environments
+    description: Gets a list of Cloud9 development environment identifiers.
+    source_operation: openapi/amazon-cloud9-openapi.yml#ListEnvironments
+  - name: create_environment_ec2
+    description: Creates an AWS Cloud9 development environment and launches an EC2 instance.
+    source_operation: openapi/amazon-cloud9-openapi.yml#CreateEnvironmentEC2
+  - name: describe_environments
+    description: Gets information about AWS Cloud9 development environments.
+    source_operation: openapi/amazon-cloud9-openapi.yml#DescribeEnvironments
+  - name: delete_environment
+    description: Deletes an AWS Cloud9 development environment.
+    source_operation: openapi/amazon-cloud9-openapi.yml#DeleteEnvironment

@@ -1,0 +1,34 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Amazon Cloud9 API
+  version: 1.0.0
+extends: openapi/amazon-cloud9-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: amazon-cloud9
+      x-apievangelist-enriched: '2026-06-20'
+      x-apievangelist-lifecycle: closed-to-new-customers
+  - target: $.tags
+    update:
+      - name: Environments
+        description: Operations for managing Cloud9 development environments
+        x-apievangelist-category: development-environment
+      - name: Memberships
+        description: Operations for managing environment memberships
+        x-apievangelist-category: access-control
+  - target: $.paths['/environments'].get
+    update:
+      x-apievangelist-pagination:
+        style: token
+        request_param: nextToken
+        response_field: nextToken
+        page_size_param: maxResults
+        max_page_size: 25
+  - target: $.paths['/environments'].post
+    update:
+      x-apievangelist-idempotent: false
+      x-apievangelist-side-effects: Launches a billable Amazon EC2 instance.
+  - target: $.paths['/environments/{environmentId}'].delete
+    update:
+      x-apievangelist-destructive: true
