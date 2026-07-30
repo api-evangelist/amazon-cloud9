@@ -4,7 +4,19 @@ description: >-
   AWS Cloud9 is a browser-based integrated development environment (IDE) that enables developers to write, run, and debug code without installing local software. Supports 40+ programming languages with
   real-time collaboration, integrated terminal, and pre-authenticated AWS CLI.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-cloud9.png
 tags:
 - AWS
 - Cloud9
@@ -18,7 +30,9 @@ modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
 - name: Amazon Cloud9 API
-  description: API for creating and managing Cloud9 development environments — browser-based IDEs running on EC2 instances or SSH-connected servers.
+  description: >-
+    API for creating and managing Cloud9 development environments — browser-based IDEs running on EC2
+    instances or SSH-connected servers.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cloud9/
   baseURL: https://cloud9.us-east-1.amazonaws.com
@@ -42,6 +56,16 @@ apis:
     url: https://docs.aws.amazon.com/cli/latest/reference/cloud9/
   - type: Overlay
     url: overlays/amazon-cloud9-openapi-overlay.yaml
+- aid: amazon-cloud9:amazon-cloud9-environments-api
+  name: Amazon Cloud9 Environments API
+  description: Operations for managing Cloud9 development environments
+  humanURL: https://aws.amazon.com/cloud9/
+  baseURL: https://cloud9.us-east-1.amazonaws.com
+  tags:
+  - Environments
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-cloud9-environments-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
