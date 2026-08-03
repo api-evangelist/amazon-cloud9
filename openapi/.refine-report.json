@@ -1,0 +1,14 @@
+{
+  "provider": "amazon-cloud9",
+  "sources": [
+    "amazon-cloud9-environments-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-cloud9-environments-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
