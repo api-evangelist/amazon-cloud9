@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Cloud9 Environments API",
+    "version": "2017-09-23"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Cloud9 List Environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloud9.{region}.amazonaws.com/environments",
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of environments to get identifiers for."
+              }
+            ]
+          },
+          "docs": "Gets a list of Cloud9 development environment identifiers."
+        },
+        {
+          "info": {
+            "name": "Amazon Cloud9 Create an Environment EC2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloud9.{region}.amazonaws.com/environments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment."
+        },
+        {
+          "info": {
+            "name": "Amazon Cloud9 Describe Environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloud9.{region}.amazonaws.com/environments/:environmentId",
+            "params": [
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the environment to get information about."
+              }
+            ]
+          },
+          "docs": "Gets information about AWS Cloud9 development environments."
+        },
+        {
+          "info": {
+            "name": "Amazon Cloud9 Delete an Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cloud9.{region}.amazonaws.com/environments/:environmentId",
+            "params": [
+              {
+                "name": "environmentId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the environment to delete."
+              }
+            ]
+          },
+          "docs": "Deletes an AWS Cloud9 development environment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
