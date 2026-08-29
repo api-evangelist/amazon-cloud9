@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon Cloud9 Environments API
   description: AWS Cloud9 is a browser-based integrated development environment (IDE) that enables developers to write, run, and debug code without installing local software. Supports 40+ programming languages with real-time collaboration, integrated terminal, and pre-authenticated AWS CLI.
@@ -214,9 +214,36 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    BadRequestException:
+    CreateEnvironmentEC2Request:
       type: object
-      description: The target request is invalid.
+      description: Request body for creating an EC2-based Cloud9 environment.
+      required:
+      - name
+      - instanceType
+      properties:
+        name:
+          type: string
+          description: The name of the environment.
+          example: my-dev-environment
+        description:
+          type: string
+          description: The description of the environment.
+        instanceType:
+          type: string
+          description: The type of instance to connect to the environment.
+          example: t3.small
+        connectionType:
+          type: string
+          enum:
+          - CONNECT_SSH
+          - CONNECT_SSM
+          description: The connection type to use for connecting to the environment.
+        automaticStopTimeMinutes:
+          type: integer
+          description: The number of minutes until the running instance is shut down after the environment has last been used.
+    InternalServerErrorException:
+      type: object
+      description: An internal server error occurred.
       properties:
         message:
           type: string
@@ -224,6 +251,12 @@ components:
           type: string
         code:
           type: integer
+    NotFoundException:
+      type: object
+      description: The target resource cannot be found.
+      properties:
+        message:
+          type: string
     Environment:
       type: object
       description: Information about an AWS Cloud9 development environment.
@@ -265,6 +298,24 @@ components:
         ownerArn:
           type: string
           description: The Amazon Resource Name (ARN) of the environment owner.
+    CreateEnvironmentEC2Response:
+      type: object
+      description: Response for creating an EC2 environment.
+      properties:
+        environmentId:
+          type: string
+          description: The ID of the environment that was created.
+          example: abc12345678901234567890
+    BadRequestException:
+      type: object
+      description: The target request is invalid.
+      properties:
+        message:
+          type: string
+        className:
+          type: string
+        code:
+          type: integer
     ListEnvironmentsResponse:
       type: object
       description: Response for listing environments.
@@ -285,57 +336,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Environment'
-    CreateEnvironmentEC2Response:
-      type: object
-      description: Response for creating an EC2 environment.
-      properties:
-        environmentId:
-          type: string
-          description: The ID of the environment that was created.
-          example: abc12345678901234567890
-    NotFoundException:
-      type: object
-      description: The target resource cannot be found.
-      properties:
-        message:
-          type: string
-    InternalServerErrorException:
-      type: object
-      description: An internal server error occurred.
-      properties:
-        message:
-          type: string
-        className:
-          type: string
-        code:
-          type: integer
-    CreateEnvironmentEC2Request:
-      type: object
-      description: Request body for creating an EC2-based Cloud9 environment.
-      required:
-      - name
-      - instanceType
-      properties:
-        name:
-          type: string
-          description: The name of the environment.
-          example: my-dev-environment
-        description:
-          type: string
-          description: The description of the environment.
-        instanceType:
-          type: string
-          description: The type of instance to connect to the environment.
-          example: t3.small
-        connectionType:
-          type: string
-          enum:
-          - CONNECT_SSH
-          - CONNECT_SSM
-          description: The connection type to use for connecting to the environment.
-        automaticStopTimeMinutes:
-          type: integer
-          description: The number of minutes until the running instance is shut down after the environment has last been used.
   securitySchemes:
     aws_signature:
       type: apiKey
