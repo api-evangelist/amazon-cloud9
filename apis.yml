@@ -176,3 +176,5 @@ common:
         description: Cloud9 environments run on managed EC2 instances.
       - name: AWS IAM
         description: Control access to Cloud9 environments with IAM policies.
+x-parent: aws
+x-relationship: product
