@@ -76,6 +76,8 @@ apis:
     humanURL: https://aws.amazon.com/cloud9/
     baseURL: https://cloud9.us-east-1.amazonaws.com
     tags:
+      - Environment
+    tags_raw:
       - Environments
     properties:
       - type: OpenAPI
