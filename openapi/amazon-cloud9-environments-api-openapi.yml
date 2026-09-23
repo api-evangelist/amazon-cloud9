@@ -214,49 +214,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateEnvironmentEC2Request:
-      type: object
-      description: Request body for creating an EC2-based Cloud9 environment.
-      required:
-      - name
-      - instanceType
-      properties:
-        name:
-          type: string
-          description: The name of the environment.
-          example: my-dev-environment
-        description:
-          type: string
-          description: The description of the environment.
-        instanceType:
-          type: string
-          description: The type of instance to connect to the environment.
-          example: t3.small
-        connectionType:
-          type: string
-          enum:
-          - CONNECT_SSH
-          - CONNECT_SSM
-          description: The connection type to use for connecting to the environment.
-        automaticStopTimeMinutes:
-          type: integer
-          description: The number of minutes until the running instance is shut down after the environment has last been used.
-    InternalServerErrorException:
-      type: object
-      description: An internal server error occurred.
-      properties:
-        message:
-          type: string
-        className:
-          type: string
-        code:
-          type: integer
-    NotFoundException:
-      type: object
-      description: The target resource cannot be found.
-      properties:
-        message:
-          type: string
     Environment:
       type: object
       description: Information about an AWS Cloud9 development environment.
@@ -298,14 +255,6 @@ components:
         ownerArn:
           type: string
           description: The Amazon Resource Name (ARN) of the environment owner.
-    CreateEnvironmentEC2Response:
-      type: object
-      description: Response for creating an EC2 environment.
-      properties:
-        environmentId:
-          type: string
-          description: The ID of the environment that was created.
-          example: abc12345678901234567890
     BadRequestException:
       type: object
       description: The target request is invalid.
@@ -316,6 +265,65 @@ components:
           type: string
         code:
           type: integer
+    CreateEnvironmentEC2Response:
+      type: object
+      description: Response for creating an EC2 environment.
+      properties:
+        environmentId:
+          type: string
+          description: The ID of the environment that was created.
+          example: abc12345678901234567890
+    InternalServerErrorException:
+      type: object
+      description: An internal server error occurred.
+      properties:
+        message:
+          type: string
+        className:
+          type: string
+        code:
+          type: integer
+    NotFoundException:
+      type: object
+      description: The target resource cannot be found.
+      properties:
+        message:
+          type: string
+    CreateEnvironmentEC2Request:
+      type: object
+      description: Request body for creating an EC2-based Cloud9 environment.
+      required:
+      - name
+      - instanceType
+      properties:
+        name:
+          type: string
+          description: The name of the environment.
+          example: my-dev-environment
+        description:
+          type: string
+          description: The description of the environment.
+        instanceType:
+          type: string
+          description: The type of instance to connect to the environment.
+          example: t3.small
+        connectionType:
+          type: string
+          enum:
+          - CONNECT_SSH
+          - CONNECT_SSM
+          description: The connection type to use for connecting to the environment.
+        automaticStopTimeMinutes:
+          type: integer
+          description: The number of minutes until the running instance is shut down after the environment has last been used.
+    DescribeEnvironmentsResponse:
+      type: object
+      description: Response for describing environments.
+      properties:
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Environment'
     ListEnvironmentsResponse:
       type: object
       description: Response for listing environments.
@@ -328,14 +336,6 @@ components:
           items:
             type: string
           description: The list of environment identifiers.
-    DescribeEnvironmentsResponse:
-      type: object
-      description: Response for describing environments.
-      properties:
-        environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Environment'
   securitySchemes:
     aws_signature:
       type: apiKey
