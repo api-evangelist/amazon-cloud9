@@ -214,6 +214,12 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    NotFoundException:
+      type: object
+      description: The target resource cannot be found.
+      properties:
+        message:
+          type: string
     CreateEnvironmentEC2Response:
       type: object
       description: Response for creating an EC2 environment.
@@ -240,45 +246,6 @@ components:
           type: string
         code:
           type: integer
-    ListEnvironmentsResponse:
-      type: object
-      description: Response for listing environments.
-      properties:
-        nextToken:
-          type: string
-          description: If there are more than 25 items in the list, only the first 25 are returned.
-        environmentIds:
-          type: array
-          items:
-            type: string
-          description: The list of environment identifiers.
-    CreateEnvironmentEC2Request:
-      type: object
-      description: Request body for creating an EC2-based Cloud9 environment.
-      required:
-      - name
-      - instanceType
-      properties:
-        name:
-          type: string
-          description: The name of the environment.
-          example: my-dev-environment
-        description:
-          type: string
-          description: The description of the environment.
-        instanceType:
-          type: string
-          description: The type of instance to connect to the environment.
-          example: t3.small
-        connectionType:
-          type: string
-          enum:
-          - CONNECT_SSH
-          - CONNECT_SSM
-          description: The connection type to use for connecting to the environment.
-        automaticStopTimeMinutes:
-          type: integer
-          description: The number of minutes until the running instance is shut down after the environment has last been used.
     InternalServerErrorException:
       type: object
       description: An internal server error occurred.
@@ -330,12 +297,45 @@ components:
         ownerArn:
           type: string
           description: The Amazon Resource Name (ARN) of the environment owner.
-    NotFoundException:
+    CreateEnvironmentEC2Request:
       type: object
-      description: The target resource cannot be found.
+      description: Request body for creating an EC2-based Cloud9 environment.
+      required:
+      - name
+      - instanceType
       properties:
-        message:
+        name:
           type: string
+          description: The name of the environment.
+          example: my-dev-environment
+        description:
+          type: string
+          description: The description of the environment.
+        instanceType:
+          type: string
+          description: The type of instance to connect to the environment.
+          example: t3.small
+        connectionType:
+          type: string
+          enum:
+          - CONNECT_SSH
+          - CONNECT_SSM
+          description: The connection type to use for connecting to the environment.
+        automaticStopTimeMinutes:
+          type: integer
+          description: The number of minutes until the running instance is shut down after the environment has last been used.
+    ListEnvironmentsResponse:
+      type: object
+      description: Response for listing environments.
+      properties:
+        nextToken:
+          type: string
+          description: If there are more than 25 items in the list, only the first 25 are returned.
+        environmentIds:
+          type: array
+          items:
+            type: string
+          description: The list of environment identifiers.
   securitySchemes:
     aws_signature:
       type: apiKey
