@@ -86,6 +86,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-cloud9/overview
   - type: AgenticAccess
     url: agentic-access/amazon-cloud9-agentic-access.yml
   - type: TrustCenter
