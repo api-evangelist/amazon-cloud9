@@ -1,271 +1,695 @@
 {
+  "info": {
+    "_postman_id": "06d326ea-47d9-47ef-971d-0673bef0bbcb",
+    "name": "Amazon Cloud9 Environments API",
+    "description": "AWS Cloud9 is a browser-based integrated development environment (IDE) that enables developers to write, run, and debug code without installing local software. Supports 40+ programming languages with real-time collaboration, integrated terminal, and pre-authenticated AWS CLI.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:15:03.000Z",
+    "updatedAt": "2026-10-21T20:15:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-06d326ea-47d9-47ef-971d-0673bef0bbcb"
+  },
   "item": [
     {
-      "id": "b69bdc27-addf-410d-9d35-549d83b3d2ac",
-      "name": "Environments",
-      "description": {
-        "content": "Operations for managing Cloud9 development environments",
-        "type": "text/plain"
-      },
+      "name": "environments",
       "item": [
         {
-          "id": "2b3c33a6-c767-4d27-bd5c-c6385516c47c",
-          "name": "Amazon Cloud9 List Environments",
-          "request": {
-            "name": "Amazon Cloud9 List Environments",
-            "description": {
-              "content": "Gets a list of Cloud9 development environment identifiers.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "environments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{environmentId}",
+          "item": [
+            {
+              "name": "Amazon Cloud9 Describe Environments",
+              "id": "29c30f1d-a4c3-443d-ac31-caa476a277d9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments/:environmentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments",
+                    ":environmentId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e8b94d87-4bca-45b5-8a39-28ddb0c095e0",
+                      "key": "environmentId",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the environment to get information about."
+                    }
+                  ]
+                },
+                "description": "Gets information about AWS Cloud9 development environments."
+              },
+              "response": [
                 {
-                  "disabled": false,
-                  "key": "nextToken",
-                  "value": "<string>",
-                  "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned."
+                  "id": "f44ea677-9c2a-4821-8414-dc28092ab635",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"environments\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"type\": \"ssh\",\n      \"connectionType\": \"CONNECT_SSH\",\n      \"status\": \"error\",\n      \"ownerArn\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"type\": \"ec2\",\n      \"connectionType\": \"CONNECT_SSH\",\n      \"status\": \"ready\",\n      \"ownerArn\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-f44ea677-9c2a-4821-8414-dc28092ab635"
                 },
                 {
-                  "disabled": false,
-                  "key": "maxResults",
-                  "value": "<integer>",
-                  "description": "The maximum number of environments to get identifiers for."
+                  "id": "92b530c2-4ee9-4339-9831-483beb427556",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-92b530c2-4ee9-4339-9831-483beb427556"
+                },
+                {
+                  "id": "b6f53188-8074-4833-9fc2-273a4d005667",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-b6f53188-8074-4833-9fc2-273a4d005667"
+                },
+                {
+                  "id": "6812380d-9322-4c6d-b9cf-e15ea5528020",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-6812380d-9322-4c6d-b9cf-e15ea5528020"
                 }
               ],
-              "variable": [
-                {
-                  "description": "AWS Region",
-                  "type": "any",
-                  "value": "{{region}}",
-                  "key": "region"
-                }
-              ]
+              "createdAt": "2026-10-21T20:15:03.000Z",
+              "updatedAt": "2026-10-21T20:15:03.000Z",
+              "uid": "35240-29c30f1d-a4c3-443d-ac31-caa476a277d9"
             },
+            {
+              "name": "Amazon Cloud9 Delete an Environment",
+              "id": "d6e13216-24b4-4067-a4be-8ad5db77ad98",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments/:environmentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments",
+                    ":environmentId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a21399f0-ed56-4be4-aa98-feec27e0960d",
+                      "key": "environmentId",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the environment to delete."
+                    }
+                  ]
+                },
+                "description": "Deletes an AWS Cloud9 development environment."
+              },
+              "response": [
+                {
+                  "id": "8411b256-3c71-4a21-b704-67970f071644",
+                  "name": "Environment deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-8411b256-3c71-4a21-b704-67970f071644"
+                },
+                {
+                  "id": "533276bb-a1b5-4619-bca8-7d929ec58a5e",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-533276bb-a1b5-4619-bca8-7d929ec58a5e"
+                },
+                {
+                  "id": "bff4b230-523b-4e78-a908-67e5669540b5",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-bff4b230-523b-4e78-a908-67e5669540b5"
+                },
+                {
+                  "id": "f1677b24-17e0-4bd1-bf2e-f97ed777a2d9",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/environments/:environmentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "environments",
+                        ":environmentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "environmentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-21T20:15:04.000Z",
+                  "updatedAt": "2026-10-21T20:15:04.000Z",
+                  "uid": "35240-f1677b24-17e0-4bd1-bf2e-f97ed777a2d9"
+                }
+              ],
+              "createdAt": "2026-10-21T20:15:03.000Z",
+              "updatedAt": "2026-10-21T20:15:03.000Z",
+              "uid": "35240-d6e13216-24b4-4067-a4be-8ad5db77ad98"
+            }
+          ],
+          "id": "2239e803-6ae9-47ef-ac7a-1efff4937831",
+          "createdAt": "2026-10-21T20:15:03.000Z",
+          "updatedAt": "2026-10-21T20:15:03.000Z",
+          "uid": "35240-2239e803-6ae9-47ef-ac7a-1efff4937831"
+        },
+        {
+          "name": "Amazon Cloud9 List Environments",
+          "id": "0305985a-2c15-4bd0-bdfc-8fdc74e6fd2d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9385bcb5-02d0-49ca-81cb-d4b0a04c1c9c",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "nextToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "maxResults",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"environmentIds\": [\n    \"abc12345678901234567890\"\n  ],\n  \"nextToken\": null\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "083c6392-ecf7-4ca4-b350-5bf2992e8d90",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "nextToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "maxResults",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 2803\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3da018f4-fd75-438f-87e4-94b1a36fedd5",
-              "name": "Internal server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "nextToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "maxResults",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 9488\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bf82d07f-7591-4d59-b11a-d47f915c5ccb",
-          "name": "Amazon Cloud9 Create an Environment EC2",
-          "request": {
-            "name": "Amazon Cloud9 Create an Environment EC2",
-            "description": {
-              "content": "Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment.",
-              "type": "text/plain"
-            },
             "url": {
-              "path": [
-                "environments"
-              ],
+              "raw": "{{baseUrl}}/environments?nextToken=<string>&maxResults=<integer>",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
+              "path": [
+                "environments"
+              ],
+              "query": [
                 {
-                  "description": "AWS Region",
-                  "type": "any",
-                  "value": "{{region}}",
-                  "key": "region"
+                  "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of environments to get identifiers for.",
+                  "key": "maxResults",
+                  "value": "<integer>"
                 }
               ]
             },
+            "description": "Gets a list of Cloud9 development environment identifiers."
+          },
+          "response": [
+            {
+              "id": "7c347a86-2b89-4599-a8ab-f076b42d8669",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments?nextToken=<string>&maxResults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ],
+                  "query": [
+                    {
+                      "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of environments to get identifiers for.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"nextToken\": \"<string>\",\n  \"environmentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-10-21T20:15:04.000Z",
+              "updatedAt": "2026-10-21T20:15:04.000Z",
+              "uid": "35240-7c347a86-2b89-4599-a8ab-f076b42d8669"
+            },
+            {
+              "id": "0f0b29fa-1dec-4b04-bce2-1ed5672fc22e",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments?nextToken=<string>&maxResults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ],
+                  "query": [
+                    {
+                      "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of environments to get identifiers for.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-10-21T20:15:04.000Z",
+              "updatedAt": "2026-10-21T20:15:04.000Z",
+              "uid": "35240-0f0b29fa-1dec-4b04-bce2-1ed5672fc22e"
+            },
+            {
+              "id": "c7aa90fa-5d47-4ebd-a4a9-4f1bc3746dd0",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments?nextToken=<string>&maxResults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ],
+                  "query": [
+                    {
+                      "description": "During a previous call, if there are more than 25 items in the list, only the first 25 items are returned.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of environments to get identifiers for.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-10-21T20:15:04.000Z",
+              "updatedAt": "2026-10-21T20:15:04.000Z",
+              "uid": "35240-c7aa90fa-5d47-4ebd-a4a9-4f1bc3746dd0"
+            }
+          ],
+          "createdAt": "2026-10-21T20:15:03.000Z",
+          "updatedAt": "2026-10-21T20:15:03.000Z",
+          "uid": "35240-0305985a-2c15-4bd0-bdfc-8fdc74e6fd2d"
+        },
+        {
+          "name": "Amazon Cloud9 Create an Environment EC2",
+          "id": "82c0c9f9-7477-41f4-8768-ff6fcef72daa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -276,778 +700,206 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"instanceType\": \"<string>\",\n  \"description\": \"<string>\",\n  \"connectionType\": \"<string>\",\n  \"automaticStopTimeMinutes\": \"<integer>\"\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"instanceType\": \"<string>\",\n  \"description\": \"<string>\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": \"<integer>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/environments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "environments"
+              ]
+            },
+            "description": "Creates an AWS Cloud9 development environment, launches an Amazon EC2 instance, and then connects from the instance to the environment."
           },
           "response": [
             {
-              "id": "59962c88-03b1-460f-b11c-922e3dc22d2a",
+              "id": "84de102e-b1c3-4576-ae8a-7d07f5c45c88",
               "name": "Environment created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"my-dev-environment\",\n  \"description\": \"Development environment for project X\",\n  \"instanceType\": \"t3.small\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": 30\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"instanceType\": \"<string>\",\n  \"description\": \"<string>\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": \"<integer>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
                 }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"environmentId\": \"abc12345678901234567890\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"environmentId\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:15:04.000Z",
+              "updatedAt": "2026-10-21T20:15:04.000Z",
+              "uid": "35240-84de102e-b1c3-4576-ae8a-7d07f5c45c88"
             },
             {
-              "id": "04acd884-c6ac-428d-8ecf-a213329190b5",
+              "id": "29505a80-898f-4d6c-bd39-2cece0f48311",
               "name": "Bad request",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"my-dev-environment\",\n  \"description\": \"Development environment for project X\",\n  \"instanceType\": \"t3.small\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": 30\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"instanceType\": \"<string>\",\n  \"description\": \"<string>\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": \"<integer>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
                 }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 2803\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-10-21T20:15:04.000Z",
+              "updatedAt": "2026-10-21T20:15:04.000Z",
+              "uid": "35240-29505a80-898f-4d6c-bd39-2cece0f48311"
             },
             {
-              "id": "fb65d4d4-4f5e-43bc-a6b2-1ba2c0615e93",
+              "id": "af77bbff-d9fa-406f-b710-de1f5cfebde5",
               "name": "Internal server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"my-dev-environment\",\n  \"description\": \"Development environment for project X\",\n  \"instanceType\": \"t3.small\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": 30\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"instanceType\": \"<string>\",\n  \"description\": \"<string>\",\n  \"connectionType\": \"CONNECT_SSM\",\n  \"automaticStopTimeMinutes\": \"<integer>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
                 }
               },
               "status": "Internal Server Error",
               "code": 500,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 9488\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"className\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-10-21T20:15:04.000Z",
+              "updatedAt": "2026-10-21T20:15:04.000Z",
+              "uid": "35240-af77bbff-d9fa-406f-b710-de1f5cfebde5"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a49efe00-875a-4806-a321-5c13bb699766",
-          "name": "Amazon Cloud9 Describe Environments",
-          "request": {
-            "name": "Amazon Cloud9 Describe Environments",
-            "description": {
-              "content": "Gets information about AWS Cloud9 development environments.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "environments",
-                ":environmentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "environmentId",
-                  "description": "(Required) The ID of the environment to get information about."
-                },
-                {
-                  "description": "AWS Region",
-                  "type": "any",
-                  "value": "{{region}}",
-                  "key": "region"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a2e35978-60ab-435c-84d9-4be08ca0591f",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to get information about."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"environments\": [\n    {\n      \"id\": \"abc12345678901234567890\",\n      \"name\": \"my-dev-environment\",\n      \"description\": \"Development environment for project X\",\n      \"type\": \"ec2\",\n      \"status\": \"ready\",\n      \"ownerArn\": \"arn:aws:iam::123456789012:user/myuser\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ea48b54e-a163-4571-9c5f-e55f4dccbb7b",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to get information about."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 2803\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1bd738fe-b59e-4a05-9f5f-230f9c62eeef",
-              "name": "Not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to get information about."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2a183107-d887-430b-8430-a19bc5878e19",
-              "name": "Internal server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to get information about."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 9488\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e9917910-bb51-482b-99a8-569bdaaaa9e9",
-          "name": "Amazon Cloud9 Delete an Environment",
-          "request": {
-            "name": "Amazon Cloud9 Delete an Environment",
-            "description": {
-              "content": "Deletes an AWS Cloud9 development environment.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "environments",
-                ":environmentId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "environmentId",
-                  "description": "(Required) The ID of the environment to delete."
-                },
-                {
-                  "description": "AWS Region",
-                  "type": "any",
-                  "value": "{{region}}",
-                  "key": "region"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c218e65d-2c7f-4939-bbf8-df4944b00c38",
-              "name": "Environment deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to delete."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7d573c41-7189-4e54-9d16-120db6fda4ee",
-              "name": "Bad request",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to delete."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 2803\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d4e31385-d38c-4d11-9efa-bbcdeb15ddbf",
-              "name": "Not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to delete."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d5c3d6d4-0f0d-4e0a-bfe4-a5109fa338fb",
-              "name": "Internal server error",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "environments",
-                    ":environmentId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "environmentId",
-                      "description": "(Required) The ID of the environment to delete."
-                    },
-                    {
-                      "description": "AWS Region",
-                      "type": "any",
-                      "value": "{{region}}",
-                      "key": "region"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"message\": \"string\",\n  \"className\": \"string\",\n  \"code\": 9488\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T20:15:03.000Z",
+          "updatedAt": "2026-10-21T20:15:03.000Z",
+          "uid": "35240-82c0c9f9-7477-41f4-8768-ff6fcef72daa"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "AWS Region",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "us-east-1",
-      "key": "region"
-    },
-    {
-      "type": "string",
-      "value": "https://cloud9.{{region}}.amazonaws.com",
-      "key": "baseUrl"
+      "id": "1fa4597f-71f8-43ef-8c33-bec47f1b12c5",
+      "createdAt": "2026-10-21T20:15:03.000Z",
+      "updatedAt": "2026-10-21T20:15:03.000Z",
+      "uid": "35240-1fa4597f-71f8-43ef-8c33-bec47f1b12c5"
     }
   ],
   "auth": {
@@ -1055,25 +907,29 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "0a49bb50-87c1-41f0-bac6-6778ac653455",
-    "name": "Amazon Cloud9 Environments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "AWS Cloud9 is a browser-based integrated development environment (IDE) that enables developers to write, run, and debug code without installing local software. Supports 40+ programming languages with real-time collaboration, integrated terminal, and pre-authenticated AWS CLI.\n\nContact Support:\n Name: Amazon Web Services",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://cloud9.{{region}}.amazonaws.com"
     }
-  }
+  ]
 }
