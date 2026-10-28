@@ -1,4 +1,4 @@
-# Amazon Cloud9 (amazon-cloud9)
+# Amazon Cloud9
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,105 +66,171 @@
 
 AWS Cloud9 is a browser-based integrated development environment (IDE) that enables developers to write, run, and debug code without installing local software. Supports 40+ programming languages with real-time collaboration, integrated terminal, and pre-authenticated AWS CLI.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-cloud9/refs/heads/main/apis.yml)
+**Areas:** AWS · Cloud9 · IDE · Development · Browser-Based · Developer Tools
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Cloud9 on APIs.io
 
-## Tags:
+Everything profiled for Amazon Cloud9 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-cloud9/](https://apis.io/providers/amazon-cloud9/)** — or go straight to one of the APIs or properties below.
 
- - AWS, Cloud9, IDE, Development, Browser-Based
+### APIs (4)
 
-## Timestamps
+- [Amazon Cloud9 API](https://apis.io/apis/amazon-cloud9/amazon-cloud9-api/) — API for creating and managing Cloud9 development environments — browser-based IDEs running on EC2 instances or SSH-connected servers.
+- [Amazon Cloud9 Environments API](https://apis.io/apis/amazon-cloud9/amazon-cloud9-environments-api/) — Operations for managing Cloud9 development environments
+- [Amazon Cloud9 Cloud9 Environment Membership API](https://apis.io/apis/amazon-cloud9/amazon-cloud9-environment-membership-api/) — The Cloud9 Environment Membership API from Amazon Cloud9 — 4 operation(s) for cloud9 environment membership.
+- [Amazon Cloud9 Cloud9 Operations API](https://apis.io/apis/amazon-cloud9/amazon-cloud9-operations-api/) — The Cloud9 Operations API from Amazon Cloud9 — 5 operation(s) for cloud9 operations.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon Cloud9 API
-API for creating and managing Cloud9 development environments — browser-based IDEs running on EC2 instances or SSH-connected servers.
+#### MCP servers (1)
 
-**Human URL:** [https://aws.amazon.com/cloud9/](https://aws.amazon.com/cloud9/)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [amazon-cloud9](https://apis.io/servers/amazon-cloud9/amazon-cloud9/)
 
- - AWS, Cloud9, IDE, Development
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.aws.amazon.com/cloud9/latest/APIReference/)
+- [Amazon Cloud9 Agentic Access](https://apis.io/agentic-access/amazon-cloud9/amazon-cloud9-agentic-access/)
 
-- [APIReference](https://docs.aws.amazon.com/cloud9/latest/APIReference/)
+#### JSON Schema (5)
 
-## Common Properties
+The data models the API reads and writes.
 
-- [Portal](https://aws.amazon.com/)
+- [CreateEnvironmentEC2Request](https://apis.io/schemas/amazon-cloud9/cloud9-create-environment-ec2-request/)
+- [CreateEnvironmentEC2Response](https://apis.io/schemas/amazon-cloud9/cloud9-create-environment-ec2-response/)
+- [DescribeEnvironmentsResponse](https://apis.io/schemas/amazon-cloud9/cloud9-describe-environments-response/)
+- [Environment](https://apis.io/schemas/amazon-cloud9/cloud9-environment/)
+- [ListEnvironmentsResponse](https://apis.io/schemas/amazon-cloud9/cloud9-list-environments-response/)
+
+#### JSON Structure (5)
+
+Data models expressed in JSON Structure.
+
+- [Cloud9 Create Environment Ec2 Request Structure](https://apis.io/json-structure/amazon-cloud9/cloud9-create-environment-ec2-request-structure/)
+- [Cloud9 Create Environment Ec2 Response Structure](https://apis.io/json-structure/amazon-cloud9/cloud9-create-environment-ec2-response-structure/)
+- [Cloud9 Describe Environments Response Structure](https://apis.io/json-structure/amazon-cloud9/cloud9-describe-environments-response-structure/)
+- [Cloud9 Environment Structure](https://apis.io/json-structure/amazon-cloud9/cloud9-environment-structure/)
+- [Cloud9 List Environments Response Structure](https://apis.io/json-structure/amazon-cloud9/cloud9-list-environments-response-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Cloud9 Context](https://apis.io/jsonld/amazon-cloud9/amazon-cloud9-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Cloud9 Vocabulary](https://apis.io/vocabularies/amazon-cloud9/amazon-cloud9-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Cloud9 Create Environment Ec2 Request Example](https://apis.io/examples/amazon-cloud9/cloud9-create-environment-ec2-request-example/)
+- [Cloud9 Create Environment Ec2 Response Example](https://apis.io/examples/amazon-cloud9/cloud9-create-environment-ec2-response-example/)
+- [Cloud9 Describe Environments Response Example](https://apis.io/examples/amazon-cloud9/cloud9-describe-environments-response-example/)
+- [Cloud9 Environment Example](https://apis.io/examples/amazon-cloud9/cloud9-environment-example/)
+- [Cloud9 List Environments Response Example](https://apis.io/examples/amazon-cloud9/cloud9-list-environments-response-example/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Amazon Cloud9 Environments API](https://apis.io/collections/amazon-cloud9/open-amazon-cloud9-environments-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Amazon Cloud9 Openapi Overlay](https://apis.io/overlays/amazon-cloud9/amazon-cloud9-openapi-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Cloud9 — jsonschema rules](https://apis.io/rules/amazon-cloud9/amazon-cloud9-jsonschema-spectral-rules/)
+- [Amazon Cloud9 API Rules](https://apis.io/rules/amazon-cloud9/amazon-cloud9-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Cloud9 Authentication](https://apis.io/security/amazon-cloud9/amazon-cloud9-authentication/)
+- [Amazon Cloud9 Domain Security](https://apis.io/security/amazon-cloud9/amazon-cloud9-domain-security/)
+- [Amazon Cloud9 Trust Center](https://apis.io/security/amazon-cloud9/amazon-cloud9-trust-center/)
+- [Amazon Cloud9 Vulnerability Disclosure](https://apis.io/security/amazon-cloud9/amazon-cloud9-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/cloud9/)
-- [SpectralRules](rules/amazon-cloud9-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-cloud9-vocabulary.yaml)
-- [NaftikoCapability](capabilities/development-environment.yaml)
+- [Documentation](https://docs.aws.amazon.com/cloud9/latest/APIReference/)
+- [Sign up](https://signin.aws.amazon.com/signup?request_type=register)
+- [Support](https://aws.amazon.com/premiumsupport/)
+- [Blog](https://aws.amazon.com/blogs/developer/)
+- [Compliance](https://aws.amazon.com/compliance/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Browser-Based IDE | Write, run, and debug code from any browser without local software installation. |
-| Real-Time Collaboration | Pair program with teammates seeing edits simultaneously with built-in chat. |
-| Pre-Authenticated AWS CLI | Terminal with pre-configured AWS credentials for seamless service access. |
-| 40+ Language Support | Syntax highlighting and code completion for Python, JavaScript, PHP, Ruby, Go, and more. |
-| Serverless Development | Integrated local testing environment for AWS Lambda serverless functions. |
+**Kin Score 49.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 22.8 |
+| Contract governance | 31.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 72.6 |
+| Access clarity | 60.5 |
 
-| Name | Description |
-|------|-------------|
-| Remote Development | Develop from any internet-connected device without local environment setup. |
-| Collaborative Coding | Pair program and share development environments in real time. |
-| Serverless Development | Develop, test, and deploy AWS Lambda functions with integrated tooling. |
-| AWS-Native Development | Develop AWS applications with pre-installed SDKs and pre-authenticated CLI. |
+**Agent readiness 29.6** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| AWS Lambda | Develop and test serverless functions with integrated Lambda tooling. |
-| AWS CodeCommit | Access CodeCommit repositories from Cloud9 environments. |
-| AWS CodePipeline | Integrate Cloud9 into CI/CD pipelines for automated deployment. |
-| Amazon EC2 | Cloud9 environments run on managed EC2 instances. |
-| AWS IAM | Control access to Cloud9 environments with IAM policies. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-cloud9/](https://apis.io/providers/amazon-cloud9/).
 
-### JSON Schema
+## How this profile is made
 
-- No schemas generated
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-### JSON-LD
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Cloud9: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-- [Amazon Cloud9 Context](json-ld/amazon-cloud9-context.jsonld)
+## Open an issue
 
-## Capabilities
-
-### Shared Per-API Definitions
-
-- [Amazon Cloud9](capabilities/shared/cloud9.yaml) — 5 operations
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Development Environment Management](capabilities/development-environment.yaml) | Amazon Cloud9 | 5 | Software Developer |
-
-## Vocabulary
-
-- [Amazon Cloud9 Vocabulary](vocabulary/amazon-cloud9-vocabulary.yaml) — Unified taxonomy covering operations, workflows, and personas
-
-## Rules
-
-- [Amazon Cloud9 Spectral Rules](rules/amazon-cloud9-spectral-rules.yml) — 19 rules enforcing Amazon Cloud9 API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-cloud9/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
